@@ -12,6 +12,10 @@ dotenv.config();
 DBConnect();
 const app = express();
 
+app.use('/', (req, res) => {
+  res.send("<h1>Welcome to Emaily App...</h1>");
+})
+
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -21,9 +25,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.send("<h1>Welcome to Emaily App...</h1>");
-})
 require('./routes/authRoutes.js')(app);
 
 const PORT = process.env.PORT || 8000;
