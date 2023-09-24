@@ -2,3 +2,4 @@
 config/keys.js
 .env
 node_modules
+vercel.json
